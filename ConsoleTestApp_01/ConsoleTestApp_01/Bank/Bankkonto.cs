@@ -1,57 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ConsoleTestApp_01.Bank;
 
-namespace ConsoleTestApp_01.Bank
+internal abstract class Bankkonto : IBankkonto
 {
-	internal class Bankkonto : IBankkonto
-	{
-		private static int _newKontoNr = 0;
-		public int KontoNummer { get; }
+    private static int _newKontoNr = 0;
+    public int KontoNummer { get; }
 
-		public double Guthaben { get; private set; } = 0;
-		private double ZinsGuthaben = 0;
+    public double Guthaben { get; protected set; } = 0;
+    protected double ZinsGuthaben = 0;
 
-		public double AktivZins { get; set; } = 0.01;
-		public double PassivZins { get; set; } = 0.02;
+    public virtual double AktivZins { get; set; } = 0.01;
+    public virtual double PassivZins { get; set; } = 0.02;
 
-		public Bankkonto()
-		{
-			KontoNummer = ++_newKontoNr;
-		}
+    public abstract double MaxUeberzug { get; }
 
-		public void ZahleEin(double betrag)
-		{
-			Guthaben += betrag;
-		}
-		public void Beziehe(double betrag)
-		{
-			Guthaben -= betrag;
-		}
+    public virtual double MaxBezug => double.MaxValue;
 
-		public void Transferiere(double betrag, IBankkonto zielKonto)
-		{
-			this.Beziehe(betrag);
-			zielKonto.ZahleEin(betrag);
-		}
 
-		public void SchliesseKontoAb()
-		{
-			ZahleEin(ZinsGuthaben);
-			ZinsGuthaben = 0;
-		}
+    public Bankkonto()
+    {
+        KontoNummer = ++_newKontoNr;
+    }
 
-		public void SchreibeZinsGut(int anzTage)
-		{
-            double zins;
-            if (Guthaben >= 0)
-				zins = Guthaben * AktivZins / 360 * anzTage;
-			else
-				zins = Guthaben * PassivZins / 360 * anzTage;
+    public virtual void ZahleEin(double betrag)
+    {
+        Guthaben += betrag;
+    }
+    public virtual void Beziehe(double betrag)
+    {
+        if (betrag > MaxBezug)
+            throw new MaxBezugException("Maximaler Bezug überschritten");
+        if (Guthaben - betrag < -MaxUeberzug)
+            throw new MaxUerbzugException("Maximale Überziehung überschritten");
+        Guthaben -= betrag;
+    }
 
-			ZinsGuthaben += zins;
-		}
-	}
+    public virtual void Transferiere(double betrag, IBankkonto zielKonto)
+    {
+        this.Beziehe(betrag);
+        zielKonto.ZahleEin(betrag);
+    }
+
+    public virtual void SchliesseKontoAb()
+    {
+        ZahleEin(ZinsGuthaben);
+        ZinsGuthaben = 0;
+    }
+
+    public virtual void SchreibeZinsGut(int anzTage)
+    {
+        double zins;
+        if (Guthaben >= 0)
+            zins = Guthaben * AktivZins / 360 * anzTage;
+        else
+            zins = Guthaben * PassivZins / 360 * anzTage;
+
+        ZinsGuthaben += zins;
+    }
 }
