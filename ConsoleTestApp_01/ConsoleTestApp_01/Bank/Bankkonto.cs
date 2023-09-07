@@ -13,7 +13,8 @@ internal abstract class Bankkonto : IBankkonto
 
     public abstract double MaxUeberzug { get; }
 
-    public double BezugsLimite { get; set; } = 10_000; // nach Absprache mit Vogel
+    private const double StdBezugsLimite = 10_000; // nach Absprache mit Vogel
+    public double BezugsLimite { get; private set; } = StdBezugsLimite;
 
     public bool IsVIP;
 
@@ -77,5 +78,16 @@ internal abstract class Bankkonto : IBankkonto
                     return AktivZins - 0.001;
             } 
         }
+    }
+
+    public bool SetBezugsLimite(double newMaxBezug)
+    {
+        if (newMaxBezug > StdBezugsLimite)
+            return false;
+        if (newMaxBezug < 1)
+            return false;
+
+        BezugsLimite = newMaxBezug;
+        return true;
     }
 }
