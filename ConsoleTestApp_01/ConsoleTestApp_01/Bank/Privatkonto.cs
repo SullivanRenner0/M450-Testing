@@ -10,8 +10,7 @@ internal class Privatkonto: Bankkonto
 {
     public override double MaxUeberzug => 999_999;
 
-    public override double AktivZins { get; set; } = 0.005;
-    public override double PassivZins { get; set; } = 0.01;
+    public override double AktivZins => 0.02;
     public Privatkonto() : base()
     { }
 

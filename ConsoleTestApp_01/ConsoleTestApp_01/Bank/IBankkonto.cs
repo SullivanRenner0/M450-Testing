@@ -13,9 +13,9 @@ namespace ConsoleTestApp_01.Bank
 
 
 
-	public double AktivZins { get; set; }
+    public double AktivZins { get; }
 
-	public double PassivZins { get; set; }
+    public double PassivZins { get; }
 
 	public void ZahleEin(double betrag);
 	public void Beziehe(double betrag);

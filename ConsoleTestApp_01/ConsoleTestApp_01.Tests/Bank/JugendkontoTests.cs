@@ -102,12 +102,28 @@ public class JugendkontoTests
     public void SchreibeZinsGut_SchliesseKontoAb_Aktiv()
     {
         var sut = new Jugendkonto();
-        sut.ZahleEin(100);
+        var kontoStandBefore = 100;
+        sut.ZahleEin(kontoStandBefore);
 
         sut.SchreibeZinsGut(360);
         sut.SchliesseKontoAb();
 
-        var expectedResult = 100 + 100 * sut.AktivZins;
+        var expectedResult = kontoStandBefore + kontoStandBefore * sut.AktivZins;
+
+        Assert.AreEqual(expectedResult, sut.Guthaben);
+    }
+
+    [TestMethod]
+    public void SchreibeZinsGut_SchliesseKontoAb_Aktiv2()
+    {
+        var sut = new Jugendkonto();
+        var kontoStandBefore = 10_000;
+        sut.ZahleEin(kontoStandBefore);
+
+        sut.SchreibeZinsGut(360);
+        sut.SchliesseKontoAb();
+
+        var expectedResult = kontoStandBefore + kontoStandBefore * (sut.AktivZins - 0.005);
 
         Assert.AreEqual(expectedResult, sut.Guthaben);
     }

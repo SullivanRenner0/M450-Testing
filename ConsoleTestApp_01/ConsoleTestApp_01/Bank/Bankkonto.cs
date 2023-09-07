@@ -8,12 +8,14 @@ internal abstract class Bankkonto : IBankkonto
     public double Guthaben { get; protected set; } = 0;
     protected double ZinsGuthaben = 0;
 
-    public virtual double AktivZins { get; set; } = 0.01;
-    public virtual double PassivZins { get; set; } = 0.02;
+    public virtual double AktivZins => 0.03;
+    public virtual double PassivZins => 0.05;
 
     public abstract double MaxUeberzug { get; }
 
-    public virtual double MaxBezug => double.MaxValue;
+    public double BezugsLimite { get; set; } = 10_000; // nach Absprache mit Vogel
+
+    public bool IsVIP;
 
 
     public Bankkonto()
@@ -27,7 +29,7 @@ internal abstract class Bankkonto : IBankkonto
     }
     public virtual void Beziehe(double betrag)
     {
-        if (betrag > MaxBezug)
+        if (betrag > BezugsLimite)
             throw new MaxBezugException("Maximaler Bezug überschritten");
         if (Guthaben - betrag < -MaxUeberzug)
             throw new MaxUerbzugException("Maximale Überziehung überschritten");
@@ -45,15 +47,35 @@ internal abstract class Bankkonto : IBankkonto
         ZahleEin(ZinsGuthaben);
         ZinsGuthaben = 0;
     }
+    
 
     public virtual void SchreibeZinsGut(int anzTage)
     {
-        double zins;
-        if (Guthaben >= 0)
-            zins = Guthaben * AktivZins / 360 * anzTage;
-        else
-            zins = Guthaben * PassivZins / 360 * anzTage;
+        double zinsSatz = GetZinsSatz();
+        double zins = Guthaben * zinsSatz / 360 * anzTage;
 
         ZinsGuthaben += zins;
+    }
+
+    private double GetZinsSatz()
+    {
+        if (Guthaben == 0)
+            return 0;
+        else if (Guthaben < 0)
+            return PassivZins;
+        else
+        {
+            if (Guthaben < 10_000)
+                return AktivZins;
+            else if (Guthaben < 50_000)
+                return AktivZins - 0.005;
+            else // Guthaben >= 50_000
+            {
+                if (IsVIP)
+                    return AktivZins - 0.0075;
+                else
+                    return AktivZins - 0.001;
+            } 
+        }
     }
 }

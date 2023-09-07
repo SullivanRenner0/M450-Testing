@@ -9,7 +9,7 @@ namespace ConsoleTestApp_01.Bank
     internal class Jugendkonto : Bankkonto
     {
         public override double MaxUeberzug => 0;
-        public override double MaxBezug => 9_999;
+        public new double BezugsLimite => 9_999;
         public Jugendkonto() : base()
         { }
     }
