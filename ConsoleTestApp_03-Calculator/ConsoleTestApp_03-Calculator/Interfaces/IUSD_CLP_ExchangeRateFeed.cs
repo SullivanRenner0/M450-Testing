@@ -2,6 +2,6 @@
 {
 	public interface IUSD_CLP_ExchangeRateFeed
 	{
-		int GetActualUSDValue();
+		double GetActualUSDValue();
 	}
 }

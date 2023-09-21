@@ -8,10 +8,10 @@ namespace ConsoleTestApp_03_Calculator.Interfaces
 {
 	public interface ICalculator
 	{
-		int Add(int param1, int param2);
-		int Subtract(int param1, int param2);
-		int Multipy(int param1, int param2);
-		int Divide(int param1, int param2);
-		int ConvertUSDtoCHFR(int unit);
+		double Add(double param1, double param2);
+		double Subtract(double param1, double param2);
+		double Multipy(double param1, double param2);
+		double Divide(double param1, double param2);
+		double ConvertUSDtoCHFR(double unit);
 	}
 }

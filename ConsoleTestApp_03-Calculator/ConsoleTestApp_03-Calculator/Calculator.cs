@@ -11,27 +11,27 @@ namespace ConsoleTestApp_03_Calculator
 			_feed = feed;
 		}
 
-		public int Add(int param1, int param2)
+		public double Add(double param1, double param2)
 		{
 			throw new NotImplementedException();
 		}
 
-		public int ConvertUSDtoCHFR(int unit)
+		public double ConvertUSDtoCHFR(double unit)
 		{
 			return unit * this._feed.GetActualUSDValue();
 		}
 
-		public int Divide(int param1, int param2)
+		public double Divide(double param1, double param2)
 		{
 			throw new NotImplementedException();
 		}
 
-		public int Multipy(int param1, int param2)
+		public double Multipy(double param1, double param2)
 		{
 			throw new NotImplementedException();
 		}
 
-		public int Subtract(int param1, int param2)
+		public double Subtract(double param1, double param2)
 		{
 			throw new NotImplementedException();
 		}
