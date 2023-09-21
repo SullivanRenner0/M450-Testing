@@ -15,8 +15,58 @@ namespace ConsoleTestApp_03_Calculator.Interfaces.Tests
 		[TestMethod()]
 		public void AddTest()
 		{
-			Assert.Fail();
+			var sut = new Calculator(null);
+			var expectedResult = 3.0;
+
+			var actualResult = sut.Add(1, 2);
+
+			Assert.AreEqual(expectedResult, actualResult);
 		}
+
+		[TestMethod()]
+		public void DivideTest()
+		{
+			var sut = new Calculator(null);
+			var expectedResult = 3.0;
+
+			var actualResult = sut.Divide(6, 2);
+
+			Assert.AreEqual(expectedResult, actualResult);
+		}
+		[TestMethod()]
+		public void DivideTest_DivideByZero()
+		{
+			var sut = new Calculator(null);
+
+			var action = new Action(() => sut.Divide(6, 0));
+
+			Assert.ThrowsException<DivideByZeroException>(action);
+		}
+
+		[TestMethod()]
+		public void MultipyTest()
+		{
+			var sut = new Calculator(null);
+			var expectedResult = 6.0;
+
+			var actualResult = sut.Multiply(2, 3);
+
+			Assert.AreEqual(expectedResult, actualResult);
+		}
+
+		[TestMethod()]
+		public void SubtractTest()
+		{
+			var sut = new Calculator(null);
+			var expectedResult = 1.0;
+
+			var actualResult = sut.Subtract(3, 2);
+
+			Assert.AreEqual(expectedResult, actualResult);
+		}
+
+
+
 
 		[TestMethod()]
 		public void ConvertUSDtoCHFRTest()
@@ -31,24 +81,6 @@ namespace ConsoleTestApp_03_Calculator.Interfaces.Tests
 
 
 			Assert.AreEqual(expectedResult, actualResult);
-		}
-
-		[TestMethod()]
-		public void DivideTest()
-		{
-			Assert.Fail();
-		}
-
-		[TestMethod()]
-		public void MultipyTest()
-		{
-			Assert.Fail();
-		}
-
-		[TestMethod()]
-		public void SubtractTest()
-		{
-			Assert.Fail();
 		}
 	}
 }

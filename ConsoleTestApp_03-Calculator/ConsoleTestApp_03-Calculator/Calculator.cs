@@ -11,29 +11,41 @@ namespace ConsoleTestApp_03_Calculator
 			_feed = feed;
 		}
 
+		#region Normal Operators
 		public double Add(double param1, double param2)
 		{
-			throw new NotImplementedException();
+			return param1 + param2;
 		}
 
-		public double ConvertUSDtoCHFR(double unit)
-		{
-			return unit * this._feed.GetActualUSDValue();
-		}
-
+		/// <summary>
+		/// </summary>
+		/// <param name="param1"></param>
+		/// <param name="param2"></param>
+		/// <returns></returns>
+		/// <exception cref="DivideByZeroException"></exception>
 		public double Divide(double param1, double param2)
 		{
-			throw new NotImplementedException();
+			if (param2 == 0)
+				throw new DivideByZeroException();
+
+			return param1 / param2;
 		}
 
-		public double Multipy(double param1, double param2)
+		public double Multiply(double param1, double param2)
 		{
-			throw new NotImplementedException();
+			return param1 * param2;
 		}
 
 		public double Subtract(double param1, double param2)
 		{
-			throw new NotImplementedException();
+			return param1 - param2;
+		}
+		#endregion
+
+
+		public double ConvertUSDtoCHFR(double unit)
+		{
+			return unit * this._feed.GetActualUSDValue();
 		}
 	}
 }

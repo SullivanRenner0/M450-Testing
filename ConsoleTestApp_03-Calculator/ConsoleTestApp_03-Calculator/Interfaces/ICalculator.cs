@@ -10,7 +10,7 @@ namespace ConsoleTestApp_03_Calculator.Interfaces
 	{
 		double Add(double param1, double param2);
 		double Subtract(double param1, double param2);
-		double Multipy(double param1, double param2);
+		double Multiply(double param1, double param2);
 		double Divide(double param1, double param2);
 		double ConvertUSDtoCHFR(double unit);
 	}
