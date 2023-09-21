@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleTestApp_03_Calculator.Interfaces;
 
-namespace ConsoleTestApp_03_Calculator.Interfaces
+namespace ConsoleTestApp_03_Calculator
 {
-	internal class Calculator : ICalculator
+	public class Calculator : ICalculator
 	{
+		private readonly IUSD_CLP_ExchangeRateFeed _feed;
+
+		public Calculator(IUSD_CLP_ExchangeRateFeed feed)
+		{
+			_feed = feed;
+		}
+
 		public int Add(int param1, int param2)
 		{
 			throw new NotImplementedException();
@@ -15,7 +18,7 @@ namespace ConsoleTestApp_03_Calculator.Interfaces
 
 		public int ConvertUSDtoCHFR(int unit)
 		{
-			throw new NotImplementedException();
+			return unit * this._feed.GetActualUSDValue();
 		}
 
 		public int Divide(int param1, int param2)
