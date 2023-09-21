@@ -2,13 +2,17 @@
 
 namespace ConsoleTestApp_03_Calculator
 {
-	public class Calculator : ICalculator
+	internal class Calculator : ICalculator
 	{
 		private readonly IUSD_CLP_ExchangeRateFeed _feed;
+		private readonly IPrinterService _printer;
+		private readonly IPostService _postService;
 
-		public Calculator(IUSD_CLP_ExchangeRateFeed feed)
+		public Calculator(IUSD_CLP_ExchangeRateFeed feed, IPrinterService printer, IPostService postService)
 		{
 			_feed = feed;
+			_printer = printer;
+			_postService = postService;
 		}
 
 		#region Normal Operators
@@ -46,6 +50,26 @@ namespace ConsoleTestApp_03_Calculator
 		public double ConvertUSDtoCHFR(double unit)
 		{
 			return unit * this._feed.GetActualUSDValue();
+		}
+
+		public bool ValidatePLZ(string plz)
+		{
+			return _postService.ValidatePLZ(plz);
+		}
+
+		public double CollectData(IDataService dataService)
+		{
+			if (!dataService.Open("mydata"))
+				return 0;
+
+			var gotFirst =dataService.GetFirst(out var sum);
+			if (!gotFirst)
+				return 0;
+
+			while (dataService.GetNext(out var value))
+				sum += value;
+
+			return sum;
 		}
 	}
 }
