@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Smart_Home.Klassen.Haus">
+    <Position X="0.5" Y="1.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQACAAAAAAAAAAIBAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\Haus.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Sensor" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="Raume" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Smart_Home.Klassen.Kueche">
+    <Position X="5.25" Y="5.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAICARAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\Kueche.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.272" />
+  </Class>
+  <Class Name="Smart_Home.Klassen.Raum">
+    <Position X="5.5" Y="1.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQCAgAAAAAAAAQAABAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\Raum_abstract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Smart_Home.Klassen.Schlafzimmer">
+    <Position X="10" Y="5.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAICARAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\Schlafzimmer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.56" />
+  </Class>
+  <Class Name="Smart_Home.Klassen.WC">
+    <Position X="19.5" Y="5.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\WC.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.202" />
+  </Class>
+  <Class Name="Smart_Home.Klassen.Wettersensor">
+    <Position X="9.5" Y="0.5" Width="5.75" />
+    <NestedTypes>
+      <Class Name="Smart_Home.Klassen.Wettersensor.Wetterdaten" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Klassen\Wettersensor.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAEAgAAACAAAAQABAAAACAAAkAAAQAAAAAAAAAAQAA=</HashCode>
+      <FileName>Klassen\Wettersensor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Smart_Home.Klassen.Wintergarten">
+    <Position X="0.5" Y="5.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAACAAAAAAAAAAAAAAAAAAAAAAACARAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\Wintergarten.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="2.792" />
+  </Class>
+  <Class Name="Smart_Home.Klassen.Wohnzimmer">
+    <Position X="14.75" Y="5.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAICARAAAAAAAAAA=</HashCode>
+      <FileName>Klassen\Wohnzimmer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.151" />
+  </Class>
+  <Interface Name="Smart_Home.Interfaces.Heizungsventil">
+    <Position X="15.75" Y="1.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Heizungsventil.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Smart_Home.Interfaces.Jalousiesteuerung">
+    <Position X="19" Y="1.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Jalousiesteuerung.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Smart_Home.Interfaces.Markisensteuerung">
+    <Position X="22.25" Y="1.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAQA=</HashCode>
+      <FileName>Interfaces\Markisensteuerung.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
