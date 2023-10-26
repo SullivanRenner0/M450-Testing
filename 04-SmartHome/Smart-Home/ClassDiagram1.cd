@@ -3,20 +3,17 @@
   <Class Name="Smart_Home.Klassen.Haus">
     <Position X="0.5" Y="1.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQACAAAAAAAAAAIBAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAIDABAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Haus.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="Sensor" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="Raume" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Smart_Home.Klassen.Kueche">
     <Position X="5.25" Y="5.5" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAICARAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAyAEAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Kueche.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.272" />
@@ -24,14 +21,14 @@
   <Class Name="Smart_Home.Klassen.Raum">
     <Position X="5.5" Y="1.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAQCAgAAAAAAAAQAABAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQCAgAAAAAAAAAAABAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Raum_abstract.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Smart_Home.Klassen.Schlafzimmer">
     <Position X="10" Y="5.5" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAICARAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAiAEAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Schlafzimmer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.56" />
@@ -39,7 +36,7 @@
   <Class Name="Smart_Home.Klassen.WC">
     <Position X="19.5" Y="5.5" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Klassen\WC.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.202" />
@@ -54,14 +51,14 @@
       </Class>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAEAgAAACAAAAQABAAAACAAAkAAAQAAAAAAAAAAQAA=</HashCode>
+      <HashCode>AAAEAgAAACAAAAAABAAAACAAAkAAAQAAAAAAAAAAQAA=</HashCode>
       <FileName>Klassen\Wettersensor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Smart_Home.Klassen.Wintergarten">
     <Position X="0.5" Y="5.5" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>QAAEAACAAAAAAAAAAAAAAAAAAAAAAACARAAAAAAAAAA=</HashCode>
+      <HashCode>AAAEAAiIAAAAAAAAAAAAAAAAAAEAAAAABAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Wintergarten.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="2.792" />
@@ -69,30 +66,30 @@
   <Class Name="Smart_Home.Klassen.Wohnzimmer">
     <Position X="14.75" Y="5.5" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAICARAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAiAEAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Wohnzimmer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.151" />
   </Class>
-  <Interface Name="Smart_Home.Interfaces.Heizungsventil">
+  <Interface Name="Smart_Home.Interfaces.IHeizungsventil">
     <Position X="15.75" Y="1.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\Heizungsventil.cs</FileName>
+      <FileName>Interfaces\IHeizungsventil.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Smart_Home.Interfaces.Jalousiesteuerung">
+  <Interface Name="Smart_Home.Interfaces.IJalousiesteuerung">
     <Position X="19" Y="1.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\Jalousiesteuerung.cs</FileName>
+      <FileName>Interfaces\IJalousiesteuerung.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Smart_Home.Interfaces.Markisensteuerung">
+  <Interface Name="Smart_Home.Interfaces.IMarkisensteuerung">
     <Position X="22.25" Y="1.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAQA=</HashCode>
-      <FileName>Interfaces\Markisensteuerung.cs</FileName>
+      <FileName>Interfaces\IMarkisensteuerung.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

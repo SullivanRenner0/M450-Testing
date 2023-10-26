@@ -2,21 +2,22 @@
 {
 	class Haus
 	{
-		public Raum[] Raume;
-		public Wettersensor Sensor;
-		public int Personen { get { return Raume.Sum(r => r.Personen); } }
+		private readonly List<Raum> _rooms;
+		public List<Raum> Rooms => Rooms.ToList();
+		public readonly Wettersensor Sensor;
+		public int Personen { get { return Rooms.Sum(r => r.Personen); } }
 
-		public Haus(int updateInterval, params Raum[] rooms)
+		public Haus(Wettersensor sensor, params Raum[] rooms)
 		{
-			Raume = rooms;
-			Sensor = new Wettersensor(updateInterval);
+			_rooms = rooms.ToList();
+			Sensor = sensor;
 			Sensor.Changed += UpdateRooms;
 		}
 
 		public void UpdateRooms(object? sender, Wettersensor.Wetterdaten e)
 		{
 			Console.WriteLine("----------------------------------------");
-			foreach (Raum raum in Raume)
+			foreach (Raum raum in _rooms)
 			{
 				raum.Update(e);
 			}

@@ -7,10 +7,9 @@
 		public bool Regen { get; /*private*/ set; } = false;
 		public int UpdateInterval { get; /*private*/ set; } = 0;
 		private Random rnd = new Random();
-		private Haus Haus;
 		public event EventHandler<Wetterdaten>? Changed;
 
-		public Wettersensor(int updateInterval = 5)
+		public Wettersensor(int updateInterval = 1)
 		{
 			UpdateInterval = updateInterval;
 			Start();

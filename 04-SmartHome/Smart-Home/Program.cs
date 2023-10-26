@@ -13,7 +13,9 @@ namespace Smart_Home
 			var wintergarten = new Wintergarten();
 			var wohnzimmer = new Wohnzimmer();
 
-			var haus = new Haus(3, kueche, schlafzimmer, wc, wintergarten, wohnzimmer);
+			var sensor = new Wettersensor(1);
+
+			var haus = new Haus(sensor, kueche, schlafzimmer, wc, wintergarten, wohnzimmer);
 			await haus.WaitForExit();
 		}
 	}
