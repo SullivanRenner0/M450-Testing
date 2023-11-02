@@ -5,20 +5,21 @@
 		public Wintergarten(int temperatur = 20, int personen = 0) : base(temperatur, personen)
 		{
 		}
+
 		private bool markiseAusgefahren { get; set; }
 		public bool MarkiseAusgefahren { get { return markiseAusgefahren; } }
 
 		void IMarkisensteuerung.CheckMarkise(Wettersensor.Wetterdaten daten)
 		{
-			bool newStatus = daten.WindGesch <= 30 && daten.Temperatur > OptimalTemperature;
-			if (newStatus == markiseAusgefahren)
+			bool newStatus = daten.WindGesch <= Globals.MarkiseMaxWindSpeed && daten.Temperatur > OptimalTemperature && Globals.MarkiseCanBeUsedInRain ? true : !daten.Regen;
+            if (newStatus == markiseAusgefahren)
 				return;
 
-			if (newStatus)
-				Console.WriteLine($"Die Markise von Wintergarten(id={Id}) wird ausgefahren");
-			else
-				Console.WriteLine($"Die Markise von Wintergarten(id={Id}) wird eingefahren");
 			markiseAusgefahren = newStatus;
+			if (markiseAusgefahren)
+				Console.WriteLine($"Die Markise von {GetType().Name} (id={Id}) wird ausgefahren");
+			else
+				Console.WriteLine($"Die Markise von {GetType().Name} (id={Id}) wird eingefahren");
 		}
 
 		private bool jalousieUnten { get; set; }

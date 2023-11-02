@@ -3,17 +3,14 @@
   <Class Name="Smart_Home.Klassen.Haus">
     <Position X="0.5" Y="1.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAAIDABAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAIDABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Haus.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="Sensor" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Smart_Home.Klassen.Kueche">
     <Position X="5.25" Y="5.5" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAyAEAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAACAgAAAAIAAAAAAAAAAAAAAAAAAQAAAACAAAAA=</HashCode>
       <FileName>Klassen\Kueche.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.272" />
@@ -21,14 +18,14 @@
   <Class Name="Smart_Home.Klassen.Raum">
     <Position X="5.5" Y="1.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAQCAgAAAAAAAAAAABAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQCAAAAAAAAAAAAABABAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Raum_abstract.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Smart_Home.Klassen.Schlafzimmer">
     <Position X="10" Y="5.5" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAiAEAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAACAgAAAAIAAAAAAAAAAAAAAAAAAQAAAACAAAAA=</HashCode>
       <FileName>Klassen\Schlafzimmer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.56" />
@@ -36,7 +33,7 @@
   <Class Name="Smart_Home.Klassen.WC">
     <Position X="19.5" Y="5.5" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Klassen\WC.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.202" />
@@ -54,11 +51,12 @@
       <HashCode>AAAEAgAAACAAAAAABAAAACAAAkAAAQAAAAAAAAAAQAA=</HashCode>
       <FileName>Klassen\Wettersensor.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Smart_Home.Klassen.Wintergarten">
     <Position X="0.5" Y="5.5" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAiIAAAAAAAAAAAAAAAAAAEAAAAABAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQAACIgAAAAIAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>Klassen\Wintergarten.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="2.792" />
@@ -66,7 +64,7 @@
   <Class Name="Smart_Home.Klassen.Wohnzimmer">
     <Position X="14.75" Y="5.5" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAiAEAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAACAgAAAAIAAAAAAAAAAAAAAAAAAQAAAACAAAAA=</HashCode>
       <FileName>Klassen\Wohnzimmer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.151" />
