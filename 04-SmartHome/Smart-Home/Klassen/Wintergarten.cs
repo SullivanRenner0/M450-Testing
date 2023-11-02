@@ -7,7 +7,7 @@
 		}
 
 		private bool markiseAusgefahren { get; set; }
-		public bool MarkiseAusgefahren { get { return markiseAusgefahren; } }
+		bool IMarkisensteuerung.MarkiseAusgefahren { get { return markiseAusgefahren; } }
 
 		void IMarkisensteuerung.CheckMarkise(Wettersensor.Wetterdaten daten)
 		{
@@ -23,8 +23,8 @@
 		}
 
 		private bool jalousieUnten { get; set; }
-		public bool JalousieUnten { get { return jalousieUnten; } }
-		public void CheckJalousie(Wettersensor.Wetterdaten daten)
+		bool IJalousiesteuerung.JalousieUnten { get { return jalousieUnten; } }
+		void IJalousiesteuerung.CheckJalousie(Wettersensor.Wetterdaten daten)
 		{
 
 			if (Personen != 0 && jalousieUnten)

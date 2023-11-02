@@ -7,8 +7,8 @@
 		}
 
 		private bool heizt { get; set; }
-		public bool Heizt { get { return heizt; } }
-		public void CheckHeizung(Wettersensor.Wetterdaten daten)
+		bool IHeizungsventil.Heizt { get { return heizt; } }
+		void IHeizungsventil.CheckHeizung(Wettersensor.Wetterdaten daten)
 		{
 			if (daten.Temperatur < OptimalTemperature)
 			{
@@ -24,34 +24,33 @@
 			}
 		}
 
-		private bool _JalousieUnten { get; set; }
-		bool IJalousiesteuerung.JalousieUnten { get { return _JalousieUnten; } }
-		public void CheckJalousie(Wettersensor.Wetterdaten daten)
+		private bool jalousieUnten { get; set; }
+		bool IJalousiesteuerung.JalousieUnten { get { return jalousieUnten; } }
+		void IJalousiesteuerung.CheckJalousie(Wettersensor.Wetterdaten daten)
 		{
-			if (Personen != 0 && _JalousieUnten)
+
+			if (Personen != 0 && jalousieUnten)
 			{
-				Console.WriteLine($"Die Jalousie von diesem Raum(id={Id}) wird hochgefahren");
-				_JalousieUnten = false;
+				Console.WriteLine($"Die Jalousie von diesem {GetType().Name} (id={Id}) wird hochgefahren");
+				jalousieUnten = false;
 				return;
 			}
-			if (Personen != 0)
+
+			if (Personen == 0)
 				return;
 
 			if (daten.Temperatur > OptimalTemperature)
 			{
-				if (!_JalousieUnten)
+				if (!jalousieUnten)
 				{
-					Console.WriteLine($"Die Jalousie von diesem Raum(id={Id}) wird heruntergefahren");
-					_JalousieUnten = true;
+					Console.WriteLine($"Die Jalousie von diesem {GetType().Name} (id={Id}) wird heruntergefahren");
 				}
+				jalousieUnten = true;
 			}
-			else
+			else if (jalousieUnten) // Hat zuvor geheizt, hört jetzt auf
 			{
-				if (_JalousieUnten)//Hat zuvor geheizt, hört jetzt auf
-				{
-					Console.WriteLine($"Die Jalousie von diesem Raum(id={Id}) wird hochgefahren");
-					_JalousieUnten = false;
-				}
+				Console.WriteLine($"Die Jalousie von diesem {GetType().Name} (id={Id}) wird hochgefahren");
+				jalousieUnten = false;
 			}
 		}
 	}

@@ -7,8 +7,8 @@
 		}
 
 		private bool heizt { get; set; }
-		public bool Heizt { get { return heizt; } }
-		public void CheckHeizung(Wettersensor.Wetterdaten daten)
+		bool IHeizungsventil.Heizt { get { return heizt; } }
+		void IHeizungsventil.CheckHeizung(Wettersensor.Wetterdaten daten)
 		{
 			if (daten.Temperatur < OptimalTemperature)
 			{
@@ -25,8 +25,8 @@
 		}
 
 		private bool jalousieUnten { get; set; }
-		public bool JalousieUnten { get { return jalousieUnten; } }
-		public void CheckJalousie(Wettersensor.Wetterdaten daten)
+		bool IJalousiesteuerung.JalousieUnten { get { return jalousieUnten; } }
+		void IJalousiesteuerung.CheckJalousie(Wettersensor.Wetterdaten daten)
 		{
 
 			if (Personen != 0 && jalousieUnten)
