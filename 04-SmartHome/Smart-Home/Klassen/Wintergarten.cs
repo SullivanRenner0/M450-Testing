@@ -5,51 +5,49 @@
 		public Wintergarten(int temperatur = 20, int personen = 0) : base(temperatur, personen)
 		{
 		}
-
-		private bool _MarkiseAusgefahren { get; set; }
-		bool IMarkisensteuerung.MarkiseAusgefahren { get { return _MarkiseAusgefahren; } }
+		private bool markiseAusgefahren { get; set; }
+		public bool MarkiseAusgefahren { get { return markiseAusgefahren; } }
 
 		void IMarkisensteuerung.CheckMarkise(Wettersensor.Wetterdaten daten)
 		{
-			bool newStatus = daten.WindGesch <= 30 && daten.Temperatur > this.Temperatur;
-			if (newStatus == _MarkiseAusgefahren)
+			bool newStatus = daten.WindGesch <= 30 && daten.Temperatur > OptimalTemperature;
+			if (newStatus == markiseAusgefahren)
 				return;
 
 			if (newStatus)
 				Console.WriteLine($"Die Markise von Wintergarten(id={Id}) wird ausgefahren");
 			else
 				Console.WriteLine($"Die Markise von Wintergarten(id={Id}) wird eingefahren");
-			_MarkiseAusgefahren = newStatus;
+			markiseAusgefahren = newStatus;
 		}
 
-		private bool _JalousieUnten { get; set; }
-		bool IJalousiesteuerung.JalousieUnten { get { return _JalousieUnten; } }
+		private bool jalousieUnten { get; set; }
+		public bool JalousieUnten { get { return jalousieUnten; } }
 		public void CheckJalousie(Wettersensor.Wetterdaten daten)
 		{
-			if (Personen != 0 && _JalousieUnten)
+
+			if (Personen != 0 && jalousieUnten)
 			{
-				Console.WriteLine($"Die Jalousie von diesem Raum(id={Id}) wird hochgefahren");
-				_JalousieUnten = false;
+				Console.WriteLine($"Die Jalousie von diesem {GetType().Name} (id={Id}) wird hochgefahren");
+				jalousieUnten = false;
 				return;
 			}
-			if (Personen != 0)
+
+			if (Personen == 0)
 				return;
 
-			if (daten.Temperatur > Temperatur)
+			if (daten.Temperatur > OptimalTemperature)
 			{
-				if (!_JalousieUnten)
+				if (!jalousieUnten)
 				{
-					Console.WriteLine($"Die Jalousie von diesem Raum(id={Id}) wird heruntergefahren");
-					_JalousieUnten = true;
+					Console.WriteLine($"Die Jalousie von diesem {GetType().Name} (id={Id}) wird heruntergefahren");
 				}
+				jalousieUnten = true;
 			}
-			else
+			else if (jalousieUnten) // Hat zuvor geheizt, hört jetzt auf
 			{
-				if (_JalousieUnten)//Hat zuvor geheizt, hört jetzt auf
-				{
-					Console.WriteLine($"Die Jalousie von diesem Raum(id={Id}) wird hochgefahren");
-					_JalousieUnten = false;
-				}
+				Console.WriteLine($"Die Jalousie von diesem {GetType().Name} (id={Id}) wird hochgefahren");
+				jalousieUnten = false;
 			}
 		}
 	}

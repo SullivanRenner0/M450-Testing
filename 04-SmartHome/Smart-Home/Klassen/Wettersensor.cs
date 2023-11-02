@@ -1,6 +1,6 @@
 ﻿namespace Smart_Home.Klassen
 {
-	internal class Wettersensor
+	internal class Wettersensor : IWetterSensor
 	{
 		public double Temperatur { get; /*private*/ set; } = 20;
 		public double WinGesch { get; /*private*/ set; } = 29;

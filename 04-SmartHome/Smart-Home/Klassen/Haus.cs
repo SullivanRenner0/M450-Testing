@@ -4,10 +4,10 @@
 	{
 		private readonly List<Raum> Rooms;
 
-		public readonly Wettersensor Sensor;
+		public readonly IWetterSensor Sensor;
 		public int Personen { get { return Rooms.Sum(r => r.Personen); } }
 
-		public Haus(Wettersensor sensor, params Raum[] rooms)
+		public Haus(IWetterSensor sensor, params Raum[] rooms)
 		{
 			Rooms = rooms.ToList();
 			Sensor = sensor;
@@ -33,7 +33,8 @@
 		/// <returns></returns>
 		public async Task WaitForExit()
 		{
-			await Sensor.ReadKeys();
+			if (Sensor is Wettersensor wettersensor)
+				await wettersensor.ReadKeys();
 		}
 	}
 }

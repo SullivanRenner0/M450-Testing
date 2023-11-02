@@ -2,28 +2,25 @@
 {
 	class Schlafzimmer : Raum, IHeizungsventil, IJalousiesteuerung
 	{
-		public Schlafzimmer(int temperatur = 20, int personen = 0) : base(temperatur, personen)
+		public Schlafzimmer(int optimalTemp = 20, int personen = 0) : base(optimalTemp, personen)
 		{
 		}
-		private bool _Heizt { get; set; }
-		bool IHeizungsventil.Heizt { get { return _Heizt; } }
+
+		private bool heizt { get; set; }
+		public bool Heizt { get { return heizt; } }
 		public void CheckHeizung(Wettersensor.Wetterdaten daten)
 		{
-			if (daten.Temperatur < Temperatur)
+			if (daten.Temperatur < OptimalTemperature)
 			{
-				if (!_Heizt)
-				{
-					Console.WriteLine($"Dieser Raum(id={Id}) wird geheizt");
-					_Heizt = true;
-				}
+				if (!heizt)
+					Console.WriteLine($"{GetType().Name} (id={Id}) wird jetzt geheizt");
+				heizt = true;
 			}
 			else
 			{
-				if (_Heizt)//Hat zuvor geheizt, hört jetzt auf
-				{
-					Console.WriteLine($"Dieser Raum(id={Id}) wird nicht mehr geheizt");
-					_Heizt = false;
-				}
+				if (heizt)
+					Console.WriteLine($"{GetType().Name} (id={Id}) wird jetzt nicht mehr geheizt");
+				heizt = false;
 			}
 		}
 
@@ -40,7 +37,7 @@
 			if (Personen != 0)
 				return;
 
-			if (daten.Temperatur > Temperatur)
+			if (daten.Temperatur > OptimalTemperature)
 			{
 				if (!_JalousieUnten)
 				{

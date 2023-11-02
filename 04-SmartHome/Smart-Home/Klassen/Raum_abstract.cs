@@ -2,14 +2,13 @@
 {
 	abstract class Raum
 	{
-		public readonly double Temperatur = 0;
+		public double OptimalTemperature;
 		public int Personen;
 		public readonly int Id;
 		private static int nextId = 1;
 
-		public Raum(double temperatur, int personen = 0)
+		public Raum(double tempearur = 20, int personen = 0)
 		{
-			Temperatur = temperatur;
 			Personen = personen;
 			Id = nextId++;
 		}
