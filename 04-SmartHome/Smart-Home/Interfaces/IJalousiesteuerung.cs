@@ -1,6 +1,6 @@
 ﻿namespace Smart_Home.Interfaces
 {
-	interface IJalousiesteuerung
+	public interface IJalousiesteuerung
 	{
 		bool JalousieUnten { get; }
 		void CheckJalousie(Wettersensor.Wetterdaten daten);

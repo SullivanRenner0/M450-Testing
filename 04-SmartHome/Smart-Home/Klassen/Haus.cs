@@ -17,9 +17,11 @@
 		public void UpdateRooms(object? sender, Wettersensor.Wetterdaten e)
 		{
 			Console.WriteLine("----------------------------------------");
-			foreach (Raum raum in Rooms)
+			foreach (Raum room in Rooms)
 			{
-				raum.Update(e);
+				(room as IHeizungsventil)?.CheckHeizung(e);
+				(room as IMarkisensteuerung)?.CheckMarkise(e);
+				(room as IJalousiesteuerung)?.CheckJalousie(e);
 			}
 			Console.WriteLine("----------------------------------------");
 		}

@@ -1,12 +1,12 @@
 ﻿namespace Smart_Home.Klassen
 {
-	class WC : Raum, IHeizungsventil
+	public class WC : Raum, IHeizungsventil
 	{
-		public WC(int temperatur = 20, int personen = 0) : base(temperatur, personen)
+		public WC(double temperatur = 20, int personen = 0) : base(temperatur, personen)
 		{
 		}
 		private bool _heizt { get; set; }
-		bool IHeizungsventil.Heizt { get { return _heizt; } }
+		public bool Heizt { get { return _heizt; } }
 		public void CheckHeizung(Wettersensor.Wetterdaten daten)
 		{
 			if (daten.Temperatur < OptimalTemperature)
