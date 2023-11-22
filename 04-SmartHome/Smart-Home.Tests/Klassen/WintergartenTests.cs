@@ -51,7 +51,7 @@ namespace Smart_Home.Klassen.Tests
 
 			sut.CheckMarkise(data);
 
-			var expected = data.Temperatur > sut.OptimalTemperature && (Globals.MarkiseCanBeUsedInRain ? true : !data.Regen) && data.WindGesch <= Globals.MarkiseMaxWindSpeed;
+			var expected = data.Temperatur > sut.OptimalTemperature && (Constants.MarkiseCanBeUsedInRain ? true : !data.Regen) && data.WindGesch <= Constants.MarkiseMaxWindSpeed;
 			Assert.AreEqual(expected, sut.MarkiseAusgefahren);
 		}
 	}

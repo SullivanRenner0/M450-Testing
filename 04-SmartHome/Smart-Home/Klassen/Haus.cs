@@ -25,18 +25,5 @@
 			}
 			Console.WriteLine("----------------------------------------");
 		}
-
-		/// <summary>
-		/// <para>Erleichtert das Steuern des Wetters</para>
-		/// <br>Pfeil nach oben: Temperatur + 1, Pfeil nach unten: Temperaut - 1 (min = 0)</br>
-		/// <br>Pfeil nach rechts: WindGesch + 1, Pfeil nach links: WindGesch - 1 (min = 0)</br>
-		/// <br>Plus(+): UpdateInterval + 1 Sek. (langsamer), Minus(-): UpdateInterval - 1 Sek. (schneller)</br>
-		/// </summary>
-		/// <returns></returns>
-		public async Task WaitForExit()
-		{
-			if (Sensor is Wettersensor wettersensor)
-				await wettersensor.ReadKeys();
-		}
 	}
 }

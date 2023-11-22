@@ -11,7 +11,7 @@
 
 		public void CheckMarkise(Wettersensor.Wetterdaten daten)
 		{
-			bool newStatus = daten.WindGesch <= Globals.MarkiseMaxWindSpeed && daten.Temperatur > OptimalTemperature && (Globals.MarkiseCanBeUsedInRain ? true : !daten.Regen);
+			bool newStatus = daten.WindGesch <= Constants.MarkiseMaxWindSpeed && daten.Temperatur > OptimalTemperature && (Constants.MarkiseCanBeUsedInRain ? true : !daten.Regen);
             if (newStatus == markiseAusgefahren)
 				return;
 

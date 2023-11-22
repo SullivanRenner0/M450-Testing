@@ -16,7 +16,8 @@ namespace Smart_Home
 			var sensor = new Wettersensor(1);
 
 			var haus = new Haus(sensor, kueche, schlafzimmer, wc, wintergarten, wohnzimmer);
-			await haus.WaitForExit();
+
+			await Task.Delay(TimeSpan.FromMinutes(3));
 		}
 	}
 }

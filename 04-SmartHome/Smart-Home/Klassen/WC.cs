@@ -5,21 +5,21 @@
 		public WC(double temperatur = 20, int personen = 0) : base(temperatur, personen)
 		{
 		}
-		private bool _heizt { get; set; }
-		public bool Heizt { get { return _heizt; } }
+		private bool heizt { get; set; }
+		public bool Heizt { get { return heizt; } }
 		public void CheckHeizung(Wettersensor.Wetterdaten daten)
 		{
 			if (daten.Temperatur < OptimalTemperature)
 			{
-				if (!_heizt)
+				if (!heizt)
 					Console.WriteLine($"{GetType().Name} (id={Id}) wird jetzt geheizt");
-				_heizt = true;
+				heizt = true;
 			}
 			else
 			{
-				if (_heizt)
+				if (heizt)
 					Console.WriteLine($"{GetType().Name} (id={Id}) wird jetzt nicht mehr geheizt");
-				_heizt = false;
+				heizt = false;
 			}
 		}
 	}

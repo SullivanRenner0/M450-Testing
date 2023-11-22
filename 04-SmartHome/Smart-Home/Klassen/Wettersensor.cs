@@ -62,65 +62,6 @@
 			Console.WriteLine("Windgeschwindigkeit: " + WinGesch.ToString() + " km/h");
 			Console.WriteLine("Regen: " + (Regen ? "Ja" : "Nein"));
 			Changed?.Invoke(this, GetData());
-			//Haus.UpdateRooms();
-		}
-
-		/// <summary>
-		/// <para>Erleichtert das Steuern des Wetters</para>
-		/// <br>Pfeil nach oben: Temperatur + 1, Pfeil nach unten: Temperaut - 1 (min = 0)</br>
-		/// <br>Pfeil nach rechts: WindGesch + 1, Pfeil nach links: WindGesch - 1 (min = 0)</br>
-		/// <br>Plus(+): UpdateInterval + 1 Sek. (langsamer), Minus(-): UpdateInterval - 1 Sek. (schneller)</br>
-		/// </summary>
-		/// <returns></returns>
-		public async Task ReadKeys()
-		{
-			await Task.Run(() =>
-			{
-				while (true)
-				{
-					var key = Console.ReadKey(true);
-					switch (key.Key)
-					{
-						case ConsoleKey.UpArrow:
-							Temperatur++;
-							break;
-						case ConsoleKey.DownArrow:
-							Temperatur--;
-							break;
-
-						case ConsoleKey.RightArrow:
-							WinGesch++;
-							break;
-						case ConsoleKey.LeftArrow:
-							if (WinGesch >= 1)
-								WinGesch--;
-							break;
-
-						case ConsoleKey.Spacebar:
-							Regen = key.Modifiers != ConsoleModifiers.Shift;
-							break;
-
-
-						case ConsoleKey.Add:
-						case ConsoleKey.OemPlus:
-							if (UpdateInterval.Seconds >= 1)
-								UpdateInterval = TimeSpan.FromSeconds(UpdateInterval.Seconds + 1);
-							break;
-						case ConsoleKey.D1:
-							if (key.Modifiers == ConsoleModifiers.Shift)
-								UpdateInterval = TimeSpan.FromSeconds(UpdateInterval.Seconds + 1);
-							break;
-						case ConsoleKey.Subtract:
-						case ConsoleKey.OemMinus:
-							if (UpdateInterval.Seconds >= 1)
-								UpdateInterval = TimeSpan.FromSeconds(UpdateInterval.Seconds - 1);
-							break;
-
-						default:
-							return;
-					}
-				}
-			});
 		}
 
 		public class Wetterdaten
