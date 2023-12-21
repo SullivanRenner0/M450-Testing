@@ -1,0 +1,103 @@
+Fehlerwirkung erchläre
+----------------------
+Nach aussen sichtbares Verhalten des Fehlers (Programm stürtzt ab,
+falscher Wert wird berechnet etc.)
+
+
+Testbasis erchläre
+----------------------
+Grundlage für alle Überlegungen zum Testen ist die Testbasis.
+Alle Dokumenmte die herangezogen werden können, um eine
+Entscheidung treffen zu können, ob beim Testen eine
+Fehlerwirkung aufgetreten ist oder nicht.
+
+
+3 Integrationsteststrategie
+----------------------
+
+Bing-Bang-Integration:
+Nicht inkrementelle Integration aller Komponenten erst am Schluss wenn alle verfügbar sind.
+
+Vorteil:
+- ?
+
+Nachteil:
+- Lange Wartezeit bis alle Komponentenverfügbar sind
+- Alle Fehler treten auf einmal auf, es ist schwierig das System überhaupt zum laufen zu bringen
+
+______________________
+
+Ad-Hoc-Integration:
+In Reihenfolge, wie Komponentenverfügbar sind
+
+Vorteil:
+- Frühes testen sobald Komponenten verfügbar
+
+Nachteil:
+- Testtreiber und Platzhalter notwendig
+______________________
+
+Backbone-Integration:
+Programmskelett in das Komponenten schrittweise eijngehängt werden können
+
+Vorteil:
+- Beliebe Reihenfolge von der Implementatin von Komponentnen
+
+Nachteil:
+- Aufwendige Erstellung vom Backbone Skelett
+
+Vorteil/Nochteil dynamischi Tests
+----------------------
+Tests die während der Ausführungs des Programs durchgeführt werden (MSTest Projekt). Z.B. Unit-Tests, Integrationstests.
+
+Vorteile:
+- Dynamische Tests spiegeln das tatsächliche Verhalten der Software
+- Dynamische Tests decken Fehler die nur in der Laufzeit auftreten sehr gut auf.
+
+Nachteile:
+- Es können nie alle Ausführungsszenarien getestet werden
+- Tests müssen ausprogrammiert und ständig angepasst werden
+
+
+3 Rollen in Review
+----------------------
+Gutachter: Überprüft den Code
+Moderator: Leitet das Codereview
+Autor: Ersteller des Code
+
+
+4 Clean Code Kriterien
+----------------------
+- Aussagekräftige Namen:
+- Kommentare sparsam und sinnvoll einsetzen
+- Funktionen mit nur einer Aufgabe (Single Responsibility Principle)
+- Vermeidung von Redundanz (DRY - Don't Repeat Yourself)
+
+Stub, Spy, Mock erchläre
+----------------------
+- Stub: Gibt vordefinierte, simulierte Werte aus.
+- Spy: Merkt sich Details über Abläufe zur späteren Überprüfung.
+- Mock: Überprüft, ob eine Aufgabe wie erwartet erledigt wurde
+
+
+Je 2 zusammenhänge und unterschiede vo test und produktivumgebung
+----------------------
+Zusammenhänge:
+- Sollen beide das fertige System repräsentieren
+- Software kommt zuerst immer auf die Testumgebung und dann auf die Produktivumgebung
+
+Unterschiede:
+- Produktivumgebung ist stabiler
+- Produktivumgebung besitzt Datenintegrität
+
+Regressionstests erchläre
+----------------------
+Regressionstests sind wiederholte Tests, die nach Modifikationen an einem Programm durchgeführt
+werden, um sicherzustellen, dass die vorgenommenen Änderungen keine unbeabsichtigten
+Seiteneffekte oder neue Fehler verursacht haben.
+
+
+Verifizieren erchläre
+----------------------
+Verifizieren: beweisen, nachprüfen 
+Validieren: bekräftigen, für gültig erklären
